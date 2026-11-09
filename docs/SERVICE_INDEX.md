@@ -3,7 +3,7 @@
 This document is the authoritative inventory of the HTTP routes exposed by the catalog service.
 It is generated from the active source tree using the entry rules below.
 
-Source branch: main
+Source branch: feature/api-v2
 
 ## Entry rules
 
@@ -23,16 +23,24 @@ Source branch: main
 | --- | --- | --- | --- | --- |
 | catalog/accounts.py | GET | /accounts | list_accounts | stable |
 | catalog/accounts.py | GET | /accounts/{account_id} | get_account | stable |
-| catalog/accounts.py | PATCH | /accounts/{account_id} | update_account | stable |
+| catalog/accounts.py | GET | /accounts/{account_id}/sessions | list_account_sessions | experimental |
+| catalog/accounts.py | PATCH | /accounts/{account_id} | update_account | deprecated |
 | catalog/accounts.py | POST | /accounts | create_account | stable |
 | catalog/billing.py | GET | /billing/invoices | list_invoices | stable |
 | catalog/billing.py | GET | /billing/invoices/{invoice_id} | get_invoice | stable |
-| catalog/billing.py | POST | /billing/invoices | create_invoice | experimental |
+| catalog/billing.py | POST | /billing/invoices | create_invoice | stable |
 | catalog/billing.py | POST | /billing/invoices/{invoice_id}/void | void_invoice | deprecated |
+| catalog/billing.py | POST | /billing/refunds | create_refund | experimental |
+| catalog/partners.py | GET | /partners | list_partners | stable |
+| catalog/partners.py | GET | /partners/{partner_id} | get_partner | stable |
+| catalog/partners.py | POST | /partners | create_partner | experimental |
 | catalog/reports.py | GET | /reports/daily | daily_report | deprecated |
 | catalog/reports.py | GET | /reports/monthly | monthly_report | planned |
+| catalog/reports.py | GET | /reports/weekly | weekly_report | stable |
 | catalog/support.py | GET | /support/tickets | list_tickets | stable |
 | catalog/support.py | GET | /support/tickets/{ticket_id} | get_ticket | stable |
-| catalog/support.py | POST | /support/tickets | open_ticket | stable |
+| catalog/support.py | POST | /support/tickets/bulk-close | bulk_close_tickets | planned |
+| catalog/support.py | POST | /support/tickets/{ticket_id}/assign | assign_ticket | stable |
+| catalog/webhooks.py | DELETE | /webhooks/stripe/{subscription_id} | delete_stripe_subscription | deprecated |
 | catalog/webhooks.py | POST | /webhooks/github | github_webhook | stable |
 | catalog/webhooks.py | POST | /webhooks/stripe | stripe_webhook | experimental |
