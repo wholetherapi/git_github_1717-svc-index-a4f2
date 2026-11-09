@@ -11,7 +11,7 @@ def list_invoices(request):
 
 
 @route("POST", "/billing/invoices")
-@experimental
+@stable
 def create_invoice(request):
     """Create a new invoice."""
     return {}
@@ -28,5 +28,12 @@ def get_invoice(request):
 @deprecated
 def void_invoice(request):
     """Void an issued invoice."""
+    return {}
+
+
+@route("POST", "/billing/refunds")
+@experimental
+def create_refund(request):
+    """Create a refund against a settled invoice."""
     return {}
 

@@ -10,18 +10,25 @@ def list_tickets(request):
     return {}
 
 
-@route("POST", "/support/tickets")
-@stable
-def open_ticket(request):
-    """Open a new support ticket."""
-    return {}
-
-
 @route("GET", "/support/tickets/{ticket_id}")
 @stable
 def get_ticket(request):
     """Return a single support ticket by id."""
     return {}
+
+
+@route("POST", "/support/tickets/{ticket_id}/assign")
+@stable
+def assign_ticket(request):
+    """Assign a support ticket to an agent."""
+    return {}
+
+
+@route("POST", "/support/tickets/bulk-close")
+@stable
+def bulk_close_tickets(request):
+    """Close a batch of support tickets."""
+    raise NotImplementedError("Route handler is not implemented yet")
 
 
 @route("GET", "/internal/support/health")

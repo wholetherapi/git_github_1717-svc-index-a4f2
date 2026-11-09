@@ -25,9 +25,16 @@ def get_account(request):
 
 
 @route("PATCH", "/accounts/{account_id}")
-@stable
+@deprecated
 def update_account(request):
     """Update mutable account fields."""
+    return {}
+
+
+@route("GET", "/accounts/{account_id}/sessions")
+@experimental
+def list_account_sessions(request):
+    """List active sessions for an account."""
     return {}
 
 

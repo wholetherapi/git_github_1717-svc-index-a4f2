@@ -16,3 +16,10 @@ def daily_report(request):
     """Return the daily usage report."""
     return {}
 
+
+@route("GET", "/reports/weekly")
+@stable
+def weekly_report(request):
+    """Return the weekly usage report."""
+    return {}
+
